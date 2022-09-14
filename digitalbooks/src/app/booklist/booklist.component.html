@@ -1,0 +1,27 @@
+<div class="container-fluid">
+<h2>Book List</h2>
+<div class="d-flex flex-warp">
+        <div *ngFor="let book of books">
+        <img [src]="book.Photo" class="card-img-top" height="150" />
+        <div class="card-header">
+           <h6>{{book.Name}}</h6>
+        </div>
+        <div class="card-body">
+            <dl>
+                <dt>
+                    Price
+                </dt>
+                <dd>{{book.Price}}</dd>
+                <dt>
+                    Rating
+                </dt>
+                <dd>{{book.price}}</dd>
+            </dl>
+        </div>
+        <div class="card-footer">
+          <button> text</button>
+        </div>
+        </div>
+
+</div>
+</div>

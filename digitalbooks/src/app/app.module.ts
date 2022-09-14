@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { DBHeaderComponent } from './dbindex/dbheader.component';
 import { DBIndexComponent } from './dbindex/dbindex.component';
 import { SearchbooksComponent } from './searchbooks/searchbooks.component';
+import { LoginComponent } from './login/login.component';
+import { BooklistComponent } from './booklist/booklist.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DBIndexComponent,
     DBHeaderComponent,
-    SearchbooksComponent
+    SearchbooksComponent,
+    LoginComponent,
+    BooklistComponent
   ],
   imports: [
     BrowserModule,
