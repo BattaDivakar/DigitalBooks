@@ -1,0 +1,14 @@
+
+.div1 {
+    /* background-color:#2E4272; */
+    display:flex;
+}
+.div2 {
+    /* background-color:#4F628E; */
+    width: 50%;
+}
+.div3 {
+    /* background-color:#7887AB; */
+    flex-grow: 1;
+    width: 50%;
+}
