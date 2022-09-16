@@ -7,7 +7,7 @@
         </dt>
         <dd>
             <input type="text" class="form-control" formControlName="userName" placeholder="First and last name"/>
-            <span *ngIf="!userName.valid && (userName.touched || userSubmitted)">
+            <span *ngIf="!userName.valid && (userName.touched || userSubmitted)" class="text-danger">
             Please provide user name</span>
         </dd>
            <dt>
@@ -16,10 +16,10 @@
            <dd>
                <input type="text" class="form-control" formControlName="email" placeholder="Email"/>
                 <span *ngIf="!email.valid && (email.touched || userSubmitted)">
-                    <span *ngIf ="email.hasError('required')">
+                    <span *ngIf ="email.hasError('required')" class="text-danger">
                         Please provide email id
                     </span>
-                    <span *ngIf ="email.hasError('email')">
+                    <span *ngIf ="email.hasError('email')" class="text-danger">
                         Please provide valid email
                     </span>
                 </span>
@@ -28,13 +28,13 @@
               Password
             </dt>
             <dd>
-            <input type="password" class="form-control" formControlName="password" placeholder="password"/>
+            <input type="password" class="form-control" formControlName="password" placeholder="at least 6 characters"/>
             <span *ngIf="!password.valid && (password.touched || userSubmitted) ">
-                <span *ngIf="password.hasError('required')">
+                <span *ngIf="password.hasError('required')" class="text-danger">
                     Please provide password
                 </span>
-                <span *ngIf="password.hasError('minlength')">
-                    Password should not be lesser than 6 character
+                <span *ngIf="password.hasError('minlength')" class="text-danger">
+                    Password should not be lesser than 6 characters
                 </span>
                 <span>
 

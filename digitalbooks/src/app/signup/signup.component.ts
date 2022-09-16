@@ -1,6 +1,6 @@
 import { NgSwitchCase } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Form, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { user } from './signup.model';
 
 @Component({
@@ -9,12 +9,11 @@ import { user } from './signup.model';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  registerationForm: any;
+  registerationForm: FormGroup;
   user: user = new user();
   userSubmitted: boolean = false;
-  // registerationForm :  FormGroup = New FormGroup();
-  constructor() {
-    
+  constructor(private fb:FormBuilder) {
+     this.registerationForm = fb.group({});
    }
 
   ngOnInit(): void {
@@ -25,12 +24,23 @@ export class SignupComponent implements OnInit {
     });
   }
 
+  // emailvalidatior(fg: FormGroup) : Validators {
+  //   // let userArray= [];
+  //   // if(localStorage.getItem('Users'))
+  //   // {
+  //   //   userArray = JSON.parse(localStorage.getItem('Users')|| "{}");
+  //   // }
+  //   // return 'a' == 'a' ? null : {nottouched: true};
+    
+  // }
+
+  
+
   onSubmit(): void{
     this.userSubmitted = true;
     console.log(this.registerationForm.value);
     if(this.registerationForm.valid)
     {
-      // this.user = Object.assign(this.user, this.registerationForm.value);
       this.addUser(this.userData());
       this.registerationForm.reset();
       this.userSubmitted =false;
