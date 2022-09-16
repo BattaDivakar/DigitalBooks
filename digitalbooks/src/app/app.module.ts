@@ -8,6 +8,8 @@ import { DBIndexComponent } from './dbindex/dbindex.component';
 import { SearchbooksComponent } from './searchbooks/searchbooks.component';
 import { LoginComponent } from './login/login.component';
 import { BooklistComponent } from './booklist/booklist.component';
+import { SignupComponent } from './signup/signup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +18,14 @@ import { BooklistComponent } from './booklist/booklist.component';
     DBHeaderComponent,
     SearchbooksComponent,
     LoginComponent,
-    BooklistComponent
+    BooklistComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [DBIndexComponent]
