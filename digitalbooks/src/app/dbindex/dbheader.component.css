@@ -1,0 +1,9 @@
+.textheader {background-repeat: no-repeat;
+    display: block;
+    float: left;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size:large;
+    font-weight: 200;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

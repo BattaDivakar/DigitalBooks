@@ -10,6 +10,8 @@ import { LoginComponent } from './login/login.component';
 import { BooklistComponent } from './booklist/booklist.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './services/auth.service';
+import { NgToastModule } from 'ng-angular-popup';
 
 @NgModule({
   declarations: [
@@ -25,9 +27,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    NgToastModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [DBIndexComponent]
 })
 export class AppModule { }

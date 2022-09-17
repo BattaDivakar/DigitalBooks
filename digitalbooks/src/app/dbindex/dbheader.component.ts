@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-dbheader',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DBHeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor( private toast: NgToastService) { }
 
   ngOnInit(): void {
   }
@@ -20,6 +21,7 @@ export class DBHeaderComponent implements OnInit {
    onLogout()
    {
     localStorage.removeItem("token");
+    this.toast.success({detail:"Success Message", summary: "You have been signoff successful."})
    }
 
 }

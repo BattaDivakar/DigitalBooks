@@ -1,6 +1,8 @@
-import { NgSwitchCase } from '@angular/common';
+import { JsonPipe, NgSwitchCase } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { user } from './signup.model';
 
 @Component({
@@ -12,7 +14,8 @@ export class SignupComponent implements OnInit {
   registerationForm: FormGroup;
   user: user = new user();
   userSubmitted: boolean = false;
-  constructor(private fb:FormBuilder) {
+
+  constructor(private fb:FormBuilder, private toast: NgToastService, private router: Router) {
      this.registerationForm = fb.group({});
    }
 
@@ -24,15 +27,17 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  // emailvalidatior(fg: FormGroup) : Validators {
-  //   // let userArray= [];
-  //   // if(localStorage.getItem('Users'))
-  //   // {
-  //   //   userArray = JSON.parse(localStorage.getItem('Users')|| "{}");
-  //   // }
-  //   // return 'a' == 'a' ? null : {nottouched: true};
-    
-  // }
+  hasEmailExisted(email: any) : boolean{
+    let userArray = [];
+    if(localStorage.getItem('Users')){
+      userArray = JSON.parse(localStorage.getItem('Users') || '{}');
+      if(userArray.find((x:any)=> x.email === email))
+      {
+        return true;
+      }
+    }
+    return false;
+  }
 
   
 
@@ -41,9 +46,17 @@ export class SignupComponent implements OnInit {
     console.log(this.registerationForm.value);
     if(this.registerationForm.valid)
     {
-      this.addUser(this.userData());
-      this.registerationForm.reset();
-      this.userSubmitted =false;
+      if(this.hasEmailExisted(this.email.value))
+      {
+        this.toast.error({detail:"Error Message", summary: "An email already exists", duration: 5000});
+      }
+      else{
+        this.addUser(this.userData());
+        this.toast.success({detail: "Success Message", summary: "Account has been created successful.", duration: 5000})
+        this.registerationForm.reset();
+        this.userSubmitted = false;
+        this.router.navigate(['/login']);
+      }
     }
   }
   userData() {

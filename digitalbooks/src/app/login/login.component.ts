@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 import { AuthService } from '../services/auth.service';
 
 @Component({
@@ -11,7 +12,8 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
 
-  constructor(private fb : FormBuilder, private authservice : AuthService, private router :Router) {
+  constructor(private fb : FormBuilder, private authservice : AuthService, 
+    private router :Router, private toast: NgToastService) {
     this.loginForm = fb.group({});
    } 
 
@@ -29,11 +31,11 @@ export class LoginComponent implements OnInit {
     if(user)
     {
       localStorage.setItem("token", user.email);
-      console.log("Login successful");
+      this.toast.success({  detail: "Success Message", summary: "Sign in successful", duration: 5000});
       this.router.navigate(["/"])
     }
     else{
-      console.log("User id or password is wrong")
+      this.toast.error({ detail: "Error Message",  summary:"User id or password is wrong", duration:5000})
     }
   }
 
