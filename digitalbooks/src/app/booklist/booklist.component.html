@@ -1,27 +1,48 @@
-<div class="container-fluid">
-<h2>Book List</h2>
-<div class="d-flex flex-warp">
-        <div *ngFor="let book of books">
+<!-- <div class="container-fluid">
+<h2>Frequently viewed items</h2>
+<div class="card-columns">
+<div *ngFor="let book of books">
+    <div class="card mb-3" style="max-width: 10rem;">
         <img [src]="book.Photo" class="card-img-top" height="150" />
         <div class="card-header">
            <h6>{{book.Name}}</h6>
         </div>
         <div class="card-body">
-            <dl>
+            <div>
+                Price {{book.Price}}
+            </div>
+            <div>Rating  </div>  
+                <!-- </dt>
+                <dd></dd>
                 <dt>
                     Price
                 </dt>
                 <dd>{{book.Price}}</dd>
-                <dt>
-                    Rating
-                </dt>
-                <dd>{{book.price}}</dd>
-            </dl>
-        </div>
-        <div class="card-footer">
-          <button> text</button>
-        </div>
-        </div>
+            </dl> -->
+        <!-- </div>
+        <!-- <div class="card-footer">
+        </div> -->
+        <!-- </div>
 
+</div>
+</div>
+</div>  -->
+
+<h4>Frequently viewed items</h4>
+<div class="row border border-2 border-Secondary p-3 rounded rounded-3">
+    <div *ngFor="let book of books" class="col-sm-3">
+    <div>
+      <div class="card">
+        <div class="card-body">
+            <img [src]="book.Photo" class="card-img-top" height="150" />
+          <h5 class="card-title"><a href="#" style="text-decoration: none;">{{book.Name}}</a></h5>
+          <div class="card-text">
+          <span>Price {{book.Price}}</span><br>
+          <span class="card-text">Rating {{book.Price}}</span>
+        </div>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        </div>
+      </div>
+    </div>
 </div>
 </div>
