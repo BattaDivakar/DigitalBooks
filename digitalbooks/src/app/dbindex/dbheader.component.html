@@ -1,12 +1,12 @@
-<header class="d-flex justify-content-between border border-2 border-Secondary p-3 rounded rounded-3">
-   <div>
+<header class="d-flex justify-content-between border border-2 border-Secondary p-3 rounded rounded-3" style="padding-bottom: 0rem !important ;padding-top: 0rem !important">
+   <div style="padding-top: 0.5rem">
      <img  routerLink ="" src="assets/images/book.jpg" style="width:100px;height: 50px"/><br>
      <h6 class="textheader">Digital Books</h6>
    </div>
-   <div>
-      <a *ngIf= "!loggedIn()" routerLink ="singup" class= "me-2 btn btn-primary">Sign Up</a>
-      <a *ngIf= "!loggedIn()" routerLink ="login" class="btn btn-primary">Sign In</a>
-      <a *ngIf= "loggedIn()" (click) ="onLogout()" class="btn btn-primary">Sign Off</a>
+   <div style="padding-top: 1rem">
+      <a *ngIf= "!loggedIn()" routerLink ="singup" class= "me-2 btn" style="background-color: #b7b9be !important;">Sign Up</a>
+      <a *ngIf= "!loggedIn()" routerLink ="login" class="btn" style="background-color: #b7b9be !important;" >Sign In</a>
+      <a *ngIf= "loggedIn()" (click) ="onLogout()" class="btn" style="background-color: #b7b9be !important;">Sign Off</a>
    </div>
 </header>
 

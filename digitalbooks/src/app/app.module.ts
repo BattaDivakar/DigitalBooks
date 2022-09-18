@@ -12,6 +12,10 @@ import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { NgToastModule } from 'ng-angular-popup';
+import { HttpClientModule} from "@angular/common/http";
+import { BookService } from './services/book.service';
+import { AuthorComponent } from './author/author.component';
+import { ManagebookComponent } from './managebook/managebook.component';
 
 @NgModule({
   declarations: [
@@ -21,16 +25,19 @@ import { NgToastModule } from 'ng-angular-popup';
     SearchbooksComponent,
     LoginComponent,
     BooklistComponent,
-    SignupComponent
+    SignupComponent,
+    AuthorComponent,
+    ManagebookComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    NgToastModule
+    NgToastModule,
+    HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, BookService],
   bootstrap: [DBIndexComponent]
 })
 export class AppModule { }
