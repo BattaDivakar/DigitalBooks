@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 
 @Component({
@@ -8,7 +9,7 @@ import { NgToastService } from 'ng-angular-popup';
 })
 export class DBHeaderComponent implements OnInit {
 
-  constructor( private toast: NgToastService) { }
+  constructor( private toast: NgToastService, private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -21,7 +22,8 @@ export class DBHeaderComponent implements OnInit {
    onLogout()
    {
     localStorage.removeItem("token");
-    this.toast.success({detail:"Success Message", summary: "You have been signoff successful."})
+    this.toast.success({detail:"Success Message", summary: "You have been signed out successfully."});
+     this.router.navigate(["/"]);
    }
 
 }

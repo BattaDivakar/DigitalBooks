@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthorComponent } from './author/author.component';
+import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { BooklistComponent } from './booklist/booklist.component';
 import { LoginComponent } from './login/login.component';
 import { ManagebookComponent } from './managebook/managebook.component';
@@ -13,7 +14,8 @@ const routes: Routes = [
   {path:'booklist', component: BooklistComponent},
   {path:'', component:SearchbooksComponent},
   {path:'author', component:AuthorComponent},
-  {path:'author/managebook', component:ManagebookComponent}
+  {path:'author/managebook', component:ManagebookComponent},
+  {path:'book', component:BookdetailsComponent}
 ];
 
 @NgModule({

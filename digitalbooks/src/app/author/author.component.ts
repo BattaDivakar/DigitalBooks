@@ -17,8 +17,6 @@ export class AuthorComponent implements OnInit {
         this.booklist = res.filter(function(ele: any){
           return ele.email == localStorage.getItem('token');
         });
-        
-        
      });
      
   }

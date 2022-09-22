@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
     providedIn: 'root'
@@ -6,7 +7,11 @@ import { Injectable } from "@angular/core";
 
 export class AuthService{
 
-    constructor(){}
+    constructor(private http:HttpClient){}
+
+    _loginUrl="https://localhost:44301/api/login";
+    _singUpUrl="https://localhost:44301/api/singUp";
+
 
     authUser(user: any)
     {
@@ -16,5 +21,9 @@ export class AuthService{
         userArray = JSON.parse(localStorage.getItem('Users')|| "{}");
       }
       return userArray.find((x: any)=>x.email == user.email && x.password == user.password);
+    }
+
+    loginUser(user:any){
+      return this.http.post<any>(this._loginUrl, user);
     }
 }

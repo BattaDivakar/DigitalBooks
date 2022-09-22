@@ -16,6 +16,7 @@ import { HttpClientModule} from "@angular/common/http";
 import { BookService } from './services/book.service';
 import { AuthorComponent } from './author/author.component';
 import { ManagebookComponent } from './managebook/managebook.component';
+import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ManagebookComponent } from './managebook/managebook.component';
     BooklistComponent,
     SignupComponent,
     AuthorComponent,
-    ManagebookComponent
+    ManagebookComponent,
+    BookdetailsComponent
   ],
   imports: [
     BrowserModule,

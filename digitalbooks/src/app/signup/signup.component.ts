@@ -52,7 +52,7 @@ export class SignupComponent implements OnInit {
       }
       else{
         this.addUser(this.userData());
-        this.toast.success({detail: "Success Message", summary: "Account has been created successful.", duration: 5000})
+        this.toast.success({detail: "Success Message", summary: "Account has been created successfully.", duration: 5000})
         this.registerationForm.reset();
         this.userSubmitted = false;
         this.router.navigate(['/login']);
