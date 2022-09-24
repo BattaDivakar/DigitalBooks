@@ -17,6 +17,7 @@ namespace DigitalBooksApp.Models
         {
         }
 
+        public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
@@ -32,6 +33,43 @@ namespace DigitalBooksApp.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
+            modelBuilder.Entity<Book>(entity =>
+            {
+                entity.Property(e => e.Category)
+                    .IsRequired()
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Chapters)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Content)
+                    .IsRequired()
+                    .HasMaxLength(1000)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.FilePath)
+                    .IsRequired()
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Price).HasColumnType("decimal(10, 2)");
+
+                entity.Property(e => e.Publisher)
+                    .IsRequired()
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PublisherDate).HasColumnType("date");
+
+                entity.Property(e => e.Title)
+                    .IsRequired()
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+            });
 
             modelBuilder.Entity<Role>(entity =>
             {

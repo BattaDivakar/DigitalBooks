@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
 
 namespace DigitalBooksApp.Controllers
 {
@@ -25,10 +26,12 @@ namespace DigitalBooksApp.Controllers
         }
 
         [HttpPost]
+        [Route("singup")]
         public IActionResult SingUp(User user)
         {
             IActionResult response = Unauthorized();
             db.Users.Add(user);
+            db.SaveChanges();
             if (user != null)
             {
                 var tokenString = GenerateToken(user);
@@ -47,7 +50,7 @@ namespace DigitalBooksApp.Controllers
             if (authenticateUser != null)
             {
                 var tokenString = GenerateToken(authenticateUser);
-                response = Ok(new { token = tokenString });
+                response = Ok(new { token = tokenString, user = authenticateUser });
             }
             return response;
         }
@@ -64,23 +67,29 @@ namespace DigitalBooksApp.Controllers
             }
         }
 
-        private string GenerateToken(User login)
+        private string GenerateToken(User user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(config["jwt:Key"]));
-            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
 
-            var token = new JwtSecurityToken(config["jwt:Issuer"],
-                config["jwt:Audience"],
-                null,
-                expires: DateTime.Now.AddMinutes(120),
-                signingCredentials: credentials);
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            var token = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[]
+               {
+                    new Claim(ClaimTypes.Name, user.Id.ToString()),
+                    new Claim(ClaimTypes.Role, user.RoleId.ToString())
+               }),
+                Expires = DateTime.Now.AddMinutes(120),
+                SigningCredentials = credentials
+            };
+            var TokenHandler = new JwtSecurityTokenHandler();
+            var tokenGenerated = TokenHandler.CreateToken(token);
+            return TokenHandler.WriteToken(tokenGenerated).ToString();
         }
 
         [HttpGet]
         public IEnumerable<User> Get()
         {
-            
             return db.Users;
         }
     }

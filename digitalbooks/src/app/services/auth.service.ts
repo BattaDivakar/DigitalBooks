@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
+import { UserData } from "../models/usermodel";
 
 @Injectable({
     providedIn: 'root'
@@ -9,8 +10,11 @@ export class AuthService{
 
     constructor(private http:HttpClient){}
 
-    _loginUrl="https://localhost:44301/api/login";
-    _singUpUrl="https://localhost:44301/api/singUp";
+    _loginUrl="https://localhost:44301/api/login/login";
+    _singUpUrl="https://localhost:44301/api/login/singup";
+    _usersUrl="https://localhost:44301/api/login";
+
+   
 
 
     authUser(user: any)
@@ -26,4 +30,14 @@ export class AuthService{
     loginUser(user:any){
       return this.http.post<any>(this._loginUrl, user);
     }
+    singupUser(user: any){
+      return this.http.post<any>(this._singUpUrl, user);
+    }
+    users(){
+       return this.http.get(this._usersUrl);
+    }
+    getToken(){
+      return localStorage.getItem('token');
+    }
+   
 }

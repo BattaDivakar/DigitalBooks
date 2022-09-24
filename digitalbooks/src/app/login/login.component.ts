@@ -29,18 +29,21 @@ export class LoginComponent implements OnInit {
 
   onSubmit()
   {
-    this.loginUser()
-    console.log(this.loginForm.value);
-    const user = this.authservice.authUser(this.loginForm.value);
-    if(user)
-    {
-      localStorage.setItem("token", user.email);
-      this.toast.success({  detail: "Success Message", summary: "You have been Signed in successfully", duration: 5000});
-      this.router.navigate(["/"])
-    }
-    else{
+    this.authservice.loginUser(this.user()).subscribe(res=>{
+      localStorage.setItem('token', res.token);
+      this.toast.success({ detail: "Success Message", summary: "You have been Signed in successfully", duration: 5000});
+      if(res.user.roleId == 1)
+      {
+        this.router.navigate(["/author"])
+      }
+      else{
+        this.router.navigate(["/"])
+      }
+    
+    },
+    res=>{
       this.toast.error({ detail: "Error Message",  summary:"User id or password is wrong", duration:5000})
-    }
+    });
   }
 
   user():UserData{
@@ -51,15 +54,6 @@ export class LoginComponent implements OnInit {
     }
   }
     
-  
-  loginUser(){
-    this.authservice.loginUser(this.user()).subscribe(res=>{
-      console.log('Hi You are able to login');
-      alert('Hi');
-      localStorage.setItem('token',res.token);
-    },res=>console.log(res));
-  }
-
   get email(){
     return this.loginForm.get("email") as FormControl;
   }

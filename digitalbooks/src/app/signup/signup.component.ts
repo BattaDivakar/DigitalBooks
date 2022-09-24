@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, Form, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
+import { UserData } from '../models/usermodel';
+import { AuthService } from '../services/auth.service';
 import { user } from './signup.model';
 
 @Component({
@@ -14,12 +16,15 @@ export class SignupComponent implements OnInit {
   registerationForm: FormGroup;
   user: user = new user();
   userSubmitted: boolean = false;
+  userModels: any;
 
-  constructor(private fb:FormBuilder, private toast: NgToastService, private router: Router) {
+  constructor(private fb:FormBuilder, private toast: NgToastService, private router: Router,
+    private authservice : AuthService ) {
      this.registerationForm = fb.group({});
    }
 
   ngOnInit(): void {
+    this.authservice.users().subscribe(res=>this.users(res), res=>{console.log(res)});
     this.registerationForm = new FormGroup({
       userName: new FormControl(null, Validators.required),
       email : new FormControl(null, [Validators.required, Validators.email]),
@@ -27,11 +32,29 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  hasEmailExisted(email: any) : boolean{
-    let userArray = [];
-    if(localStorage.getItem('Users')){
-      userArray = JSON.parse(localStorage.getItem('Users') || '{}');
-      if(userArray.find((x:any)=> x.email === email))
+  onSubmit(): void{
+    this.userSubmitted = true;
+    if(this.registerationForm.valid)
+    {
+      if(this.hasEmailExisted(this.email.value))
+      {
+        this.toast.error({detail:"Error Message", summary: "An email already exists", duration: 5000});
+      }
+      else
+      {
+        this.authservice.singupUser(this.userData()).subscribe(res=>{
+          this.toast.success({detail: "Success Message", summary: "Account has been created successfully.", duration: 5000})
+          this.registerationForm.reset();
+          this.userSubmitted = false;
+          this.router.navigate(['/login']);
+        },res=>console.log(res));
+      }
+    }
+  }
+
+  hasEmailExisted(email: any) :boolean{
+    if(this.userModels){
+      if(this.userModels.find((x:any)=> x.email.toUpperCase() === email.toUpperCase()))
       {
         return true;
       }
@@ -39,45 +62,16 @@ export class SignupComponent implements OnInit {
     return false;
   }
 
-  
-
-  onSubmit(): void{
-    this.userSubmitted = true;
-    console.log(this.registerationForm.value);
-    if(this.registerationForm.valid)
-    {
-      if(this.hasEmailExisted(this.email.value))
-      {
-        this.toast.error({detail:"Error Message", summary: "An email already exists", duration: 5000});
-      }
-      else{
-        this.addUser(this.userData());
-        this.toast.success({detail: "Success Message", summary: "Account has been created successfully.", duration: 5000})
-        this.registerationForm.reset();
-        this.userSubmitted = false;
-        this.router.navigate(['/login']);
-      }
-    }
-  }
+users(input :any){
+  this.userModels = input;
+}
+ 
   userData() {
     return this.user = {
       userName : this.userName.value,
       email : this.email.value,
       password : this.password.value 
     }
-  }
-
-  addUser(user:user){
-    let users = [];
-    if(localStorage.getItem("Users"))
-    {
-      users = JSON.parse(localStorage.getItem("Users") || '{}');
-      users = [user,...users];
-    }
-    else{
-      users = [user]
-    }
-    localStorage.setItem('Users', JSON.stringify(users));
   }
 
   get userName(){
@@ -89,7 +83,5 @@ export class SignupComponent implements OnInit {
   get password(){
     return this.registerationForm.get("password") as FormControl;
   }
-
-
 
 }

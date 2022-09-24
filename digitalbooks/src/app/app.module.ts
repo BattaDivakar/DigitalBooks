@@ -17,6 +17,7 @@ import { BookService } from './services/book.service';
 import { AuthorComponent } from './author/author.component';
 import { ManagebookComponent } from './managebook/managebook.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { BookdetailsComponent } from './bookdetails/bookdetails.component';
     NgToastModule,
     HttpClientModule
   ],
-  providers: [AuthService, BookService],
+  providers: [AuthService, BookService, {provide:JWT_OPTIONS,useValue:JWT_OPTIONS},JwtHelperService],
   bootstrap: [DBIndexComponent]
 })
 export class AppModule { }
