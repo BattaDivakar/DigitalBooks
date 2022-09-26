@@ -1,21 +1,18 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { UserData } from "../models/usermodel";
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class AuthService{
+  _loginUrl="https://localhost:44301/api/login/login";
+  _singUpUrl="https://localhost:44301/api/login/singup";
+  _usersUrl="https://localhost:44301/api/login";
 
-    constructor(private http:HttpClient){}
-
-    _loginUrl="https://localhost:44301/api/login/login";
-    _singUpUrl="https://localhost:44301/api/login/singup";
-    _usersUrl="https://localhost:44301/api/login";
-
-   
-
+  constructor(private http:HttpClient, private jwt: JwtHelperService){}
 
     authUser(user: any)
     {
@@ -38,6 +35,9 @@ export class AuthService{
     }
     getToken(){
       return localStorage.getItem('token');
+    }
+    getCurrentUserid(): number{
+       return Number(this.jwt.decodeToken(this.getToken()?.toString()).unique_name);
     }
    
 }

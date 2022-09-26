@@ -1,6 +1,6 @@
 <form [formGroup] = "bookForm" (ngSubmit)="onSubmit()" class="border border-2 border-Secondary p-3 rounded rounded-3">
     <div style="background-color: #b7b9be;">
-        <h4 style="padding: 5px; text-align: center;">Add Book</h4>
+        <h4 style="padding: 5px; text-align: center;">{{bookId > 0 ? "Update" : "Add"}} Book</h4>
     </div>
 <div class="row" style="background-color: #e2e2e3;margin-right: 2px;margin-left: 2px;">
     <div class="row form-group pb-2 pt-2">
@@ -69,12 +69,13 @@
     <div class="row form-group pb-2">
         <label class="col-sm-4 form-label"style="text-align: right;"><b>Logo</b></label>
         <div class="col-sm-4">
-            <input type="file" (change)="onSelectFile($event)" class="form-control" formControlName="logo" />
-            <span *ngIf="!logo.valid && (logo.touched || bookSubmitted)" class="text-danger">
+            <input type="file" (change)="onSelectFile($event)" class="form-control" />
+            <input type="hidden" name="fileHidden" formControlName="logo" />
+            <span *ngIf="!url?.length && (logo.touched || bookSubmitted)" class="text-danger">
                 Please uplaod book logo
             </span>
         </div>
-        <div class="col-sm-4" *ngIf="logo.valid">
+        <div class="col-sm-4" *ngIf="url?.length">
             <img [src]="url" height="75" width="75">
         </div>
     </div>

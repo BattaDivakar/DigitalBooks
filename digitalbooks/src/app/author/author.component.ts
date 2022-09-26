@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { buffer } from 'rxjs';
+import { AuthService } from '../services/auth.service';
 import { BookService } from '../services/book.service';
 
 @Component({
@@ -10,19 +12,17 @@ import { BookService } from '../services/book.service';
 export class AuthorComponent implements OnInit {
   booklist: any;
   token : any;
-  constructor(private book:BookService, private router: Router) { }
+  constructor(private _bookService:BookService,private _author : AuthService, private router: Router) { }
 
   ngOnInit(): void {
-     this.book.GetBooks().subscribe((res:any) => {
-        this.booklist = res.filter(function(ele: any){
-          return ele.email == localStorage.getItem('token');
-        });
-     });
-     
+
+     this._bookService.authorBooks(this._author.getCurrentUserid())
+     .subscribe(res => {this.booklist = res},
+      res => console.log(res));
   }
-  addbook()
+  editBook(id:any)
   {
-    this.router.navigate(['/author/managebook']);
+    this.router.navigate(['/author/managebook', btoa(id)]);
   }
 
 }

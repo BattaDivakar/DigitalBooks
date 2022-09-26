@@ -1,6 +1,6 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NgToastService } from 'ng-angular-popup';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthService } from '../services/auth.service';
@@ -17,18 +17,19 @@ export class ManagebookComponent implements OnInit {
   bookSubmitted: boolean = false;
   url :any;
   file: any;
-  dbfilepath : any;
+  newfilepath : any;
   currentUserid: number = 0;
   book: Book = new Book();
-  // const formData=new FormData();
+  bookId: number = 0;
+  oldfilePath :any;
 
   constructor(private router: Router, private fb:FormBuilder, private toast: NgToastService, private jwt: JwtHelperService,
-     private _auth: AuthService, private _bookservice: BookService, private cd :ChangeDetectorRef) { 
+     private _auth: AuthService, private _bookservice: BookService, private route : ActivatedRoute) { 
     this.bookForm = fb.group({})
   }
 
   ngOnInit(): void {
-    this.currentUserid = Number(this.jwt.decodeToken(this._auth.getToken()?.toString()).unique_name);
+    this.currentUserid = this._auth.getCurrentUserid();
     this.bookForm = new FormGroup({
       title: new FormControl(null, Validators.required),
       category : new FormControl(null, [Validators.required]),
@@ -40,36 +41,93 @@ export class ManagebookComponent implements OnInit {
       logo : new FormControl(null, [Validators.required]),
       active : new FormControl(true, [Validators.required])
     });
-  }
 
+    let sub = this.route.params.subscribe(params =>{
+      if(params['id']){
+        this.bookId = Number(atob(params['id']));
+      }
+    });
+
+   if(this.bookId > 0)
+   {
+    this._bookservice.getupdatebook(this.bookId)
+    .subscribe((res:any) => {
+      this.bookForm = new FormGroup({
+        title: new FormControl(res.book.title, Validators.required),
+        category : new FormControl(res.book.category, [Validators.required]),
+        price : new FormControl(res.book.price, [Validators.required]),
+        content: new FormControl(res.book.content, Validators.required),
+        publisher : new FormControl(res.book.publisher, [Validators.required]),
+        publisherDate : new FormControl(this.Convertdateformat(new Date(res.book.publisherDate)), [Validators.required]),
+        chapters : new FormControl(res.book.chapters, [Validators.required]),
+        logo : new FormControl(res.book.filePath, [Validators.required]),
+        active : new FormControl(res.book.active, [Validators.required])
+      });
+      this.url = "https://localhost:44301/"+res.book.filePath;
+      this.oldfilePath = res.book.filePath;
+    },
+     res => console.log(res));
+  }
+   
+  }
+ 
 
   onSubmit(): void{
-    console.log(this.bookForm.value);
-    console.log(this.file);
+    console.log(this.bookData());
     this.bookSubmitted = true;
-   
     if(this.bookForm.valid)
     {
-      const formData=new FormData();
-      formData.append('file', this.file, this.file.name);
-      this._bookservice.uploadImage(formData).subscribe(res=>this.savebook(res.dbPath),res=>console.log(res));
-      
-      
-   
+      if(this.file)
+      {
+        const formData=new FormData();
+        formData.append('file', this.file, this.file.name);
+        this._bookservice.uploadImage(formData)
+        .subscribe(res=>
+          {
+            this.newfilepath = res.dbPath
+            if(this.bookId > 0)
+            {
+              this.editbook()
+            }
+            else{
+              console.log(this.bookData())
+              this.addbook()
+            }
+          },
+          res=>console.log(res)
+          );
+      }
+      else{
+        this.editbook();
+      }
     }
   }
-  savebook(dbfilepath :any){
-    this.dbfilepath = dbfilepath;
-    this._bookservice.saveBook(this.bookData()).subscribe(res=>{
+ 
+  addbook(){
+    // this.newfilepath = dbfilepath;
+    this._bookservice.addBook(this.bookData()).subscribe(res=>{
         this.toast.success({detail: "Success Message", summary: "Book has been added successfully.", duration: 5000})
         this.bookForm.reset();
         this.bookSubmitted = false;
+        this.backtoAuthorBookList()
       },res=>console.log(res));
+  }
+
+  editbook()
+  {
+    // this.newfilepath = dbfilepath;
+    this._bookservice.editBook(this.bookId, this.bookData()).subscribe(res=>{
+      this.toast.success({detail: "Success Message", summary: "Book has been updated successfully.", duration: 5000})
+      this.bookForm.reset();
+      this.bookSubmitted = false;
+      this.backtoAuthorBookList()
+    },res=>console.log(res));
+
   }
 
   bookData() {
     return this.book = {
-      id: 0,
+      id: this.bookId,
       authorId : this.currentUserid,
       title : this.title.value,
       category : this.category.value,
@@ -78,15 +136,13 @@ export class ManagebookComponent implements OnInit {
       publisher : this.publisher.value,
       publisherDate : this.publisherDate.value,
       chapters :this.chapters.value,
-      filePath : this.dbfilepath,
+      filePath : this.getFilePath(),
       active: this.active.value,
     }
   }
 
 
-  // setData(){
-  //   this.formData.append('authorId',this.currentUserid)
-  // }
+  
   
   
 
@@ -102,21 +158,35 @@ export class ManagebookComponent implements OnInit {
   get active(){ return this.bookForm.get("active") as FormControl;}
 
   onSelectFile(e :any){
-  if(e.target.files.length)
-  {
-    var reader = new FileReader();
-    reader.readAsDataURL(e.target.files[0]);
-    reader.onload=(event:any) =>{
-        this.url = event.target.result;
+    if(e.target.files.length)
+    {
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload=(event:any) =>{ this.url = event.target.result;}
+      this.file = e.target.files[0];
+      this.bookForm.controls['logo'].setValue(e.target.files[0].name);
     }
-    this.file = e.target.files[0];
-    
-  }
-  else{
-    this.url = "";
-  }
+    else{
+      this.url = "";
+      this.bookForm.controls['logo'].setValue("");
+    }
   }
 
+  Convertdateformat(date :Date) :string{
+    const offset = date.getTimezoneOffset()
+    date = new Date(date.getTime() - (offset*60*1000))
+    return date.toISOString().split('T')[0]
+  }
+
+  getFilePath() : string{
+    if(this.newfilepath)
+    {
+     return this.newfilepath;
+    }
+    else{
+      return this.oldfilePath
+    }
+  }
    
   backtoAuthorBookList()
   {

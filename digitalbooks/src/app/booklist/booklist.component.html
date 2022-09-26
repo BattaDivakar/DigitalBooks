@@ -34,10 +34,10 @@
     <div>
       <div class="card mb-3">
         <div class="card-body">
-            <img [src]="book.logo" class="card-img-top" height="150" />
+            <img [src]="'https://localhost:44301/'+book.filePath" class="card-img-top" height="150" />
           <h5 class="card-title"><a href="#" style="text-decoration: none;">{{book.title}}</a></h5>
           <div class="card-text">
-          <span>Author: {{book.author}}</span><br>
+          <span>Author: <b>{{book.userName}}</b></span><br>
           <span>Price: {{book.price | currency:'INR'}}</span><br>
         </div>
           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->

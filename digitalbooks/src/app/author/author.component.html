@@ -1,4 +1,4 @@
-<a (click) ="addbook()"class="pull-right btn btn-secondary">Add new book</a>
+<a routerLink="managebook" class="pull-right btn btn-secondary">Add new book</a>
 <div style="padding: 20px;"></div>
 <table class="table table-bordered" style="background-color: #e2e2e3;border-color: rgba(0, 0, 0, 0.26);">
     <thead>
@@ -6,27 +6,26 @@
             <th style="width: 10%;text-align: center;">Logo</th>
             <th style="width: 20%;">Title</th>
             <th style="width: 10%;">Category</th>
-            <th style="width: 10%;">author</th>
             <th style="width: 10%;">Publisher</th>
             <th style="width: 12%;">Publisher Date</th>
             <th style="width: 8%;">Chapters</th>
-            <th style="width: 10%; text-align: right;">Price</th>
+            <th style="width: 10%;">Content</th>
+            <th style="text-align: center;">Active</th>
+            <th style="width: 8%; text-align: right;">Price</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let book of booklist">
-            <td style="text-align: center;"><img [src]="book.logo" width="50" height="50" /></td>
+            <td style="text-align: center;"><img [src]= "'https://localhost:44301/'+book.filePath" width="100" height="100" /></td>
             <!-- <td>{{book.title.substring(0,20)+"..."}}</td> -->
-            <td><a  routerLink="managebook" style="text-decoration: none;">{{book.title}}</a></td>
+            <td><button  class="btn btn-link" (click) ="editBook(book.id)" style="text-decoration: none;text-align: left !important;">{{book.title}}</button></td>
             <td>{{book.category}}</td>
-            <td>{{book.author}}</td>
             <td>{{book.publisher}}</td>
-            <td style="text-align: center;">{{book.publisherDate}}</td>
+            <td style="text-align: center;">{{book.publisherDate|date}}</td>
             <td style="text-align: center;">{{book.chapters}}</td>
+            <td>{{book.content.substring(0,50)+"..."}}</td>
+            <td style="text-align: center;">{{book.active ? "Yes" : "No"}}</td>
             <td style="text-align: right;">{{book.price|currency:'INR'}}</td>
-            <!-- <td>
-                <button class="btn btn-primary">Edit</button>
-            </td> -->
         </tr>
         <tr *ngIf="booklist?.length === 0">
            <td colspan="8">

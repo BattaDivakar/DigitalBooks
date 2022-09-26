@@ -9,7 +9,7 @@
         <b>Author</b>
       </div>
       <div>
-          <input  class="form-control" type= "text" placeholder="Enter Author" />
+          <input  class="form-control" type= "text" placeholder="Enter Author" name="author" [(ngModel)] = "Author" />
       </div>
     </div>
     <div class="form-group" style="padding-top: 1%">
@@ -17,7 +17,7 @@
           <b>Title</b>
         </div>
         <div>
-            <input class="form-control" type="text" placeholder="Enter Title" />
+            <input class="form-control" type="text" placeholder="Enter Title" name="title"  [(ngModel)] = "Title" />
         </div>
       </div>
       <div class="form-group" style="padding-top:1%">
@@ -25,19 +25,19 @@
           <b>Publisher</b>
         </div>
         <div>
-            <input type= "text" class="form-control" placeholder="Enter Publisher" />
+            <input type= "text" class="form-control" placeholder="Enter Publisher" name="publisher" [(ngModel)] = "Publisher"/>
         </div>
       </div>
       <div class="form-group" style="padding-top: 1%;">
         <div>
-          <b>Product Type</b>
+          <b>Category</b>
         </div>
         <div>
-            <input class="form-control" type= "text" placeholder="Enter Product Type" />
+            <input class="form-control" type= "text" placeholder="Enter Category" name="category" [(ngModel)] = "Category" />
         </div>
       </div>
       <div style="padding-top:2%">
-          <a routerLink ="booklist" class="btn btn-success rounded-25" >Search</a>
+          <button (click)="SearchBookList()" class="btn btn-success rounded-25" >Search</button>
       </div>
     </form>
 

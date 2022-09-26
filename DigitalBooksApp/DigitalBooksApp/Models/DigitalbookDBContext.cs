@@ -69,6 +69,12 @@ namespace DigitalBooksApp.Models
                     .IsRequired()
                     .HasMaxLength(200)
                     .IsUnicode(false);
+
+                entity.HasOne(d => d.Author)
+                    .WithMany(p => p.Books)
+                    .HasForeignKey(d => d.AuthorId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_AuthorId");
             });
 
             modelBuilder.Entity<Role>(entity =>

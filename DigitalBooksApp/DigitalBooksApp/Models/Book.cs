@@ -18,5 +18,7 @@ namespace DigitalBooksApp.Models
         public string Chapters { get; set; }
         public string FilePath { get; set; }
         public bool Active { get; set; }
+
+        public virtual User Author { get; set; }
     }
 }
