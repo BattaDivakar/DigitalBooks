@@ -37,7 +37,7 @@ export class AuthService{
       return localStorage.getItem('token');
     }
     getCurrentUserid(): number{
-       return Number(this.jwt.decodeToken(this.getToken()?.toString()).unique_name);
+       return Number(this.jwt.decodeToken(this.getToken()?.toString())?.unique_name);
     }
    
 }

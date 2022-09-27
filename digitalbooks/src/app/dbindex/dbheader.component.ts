@@ -18,10 +18,15 @@ export class DBHeaderComponent implements OnInit {
   {
     return localStorage.getItem("token");
   }
+  showmybooks()
+  {
+    return localStorage.getItem("showMybooks");
+  }
 
    onLogout()
    {
     localStorage.removeItem("token");
+    localStorage.removeItem("showMybooks");
     this.toast.success({detail:"Success Message", summary: "You have been signed out successfully."});
      this.router.navigate(["/"]);
    }

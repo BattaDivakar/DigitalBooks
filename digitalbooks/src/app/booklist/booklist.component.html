@@ -1,48 +1,22 @@
-<!-- <div class="container-fluid">
-<h2>Frequently viewed items</h2>
-<div class="card-columns">
-<div *ngFor="let book of books">
-    <div class="card mb-3" style="max-width: 10rem;">
-        <img [src]="book.Photo" class="card-img-top" height="150" />
-        <div class="card-header">
-           <h6>{{book.Name}}</h6>
-        </div>
-        <div class="card-body">
-            <div>
-                Price {{book.Price}}
-            </div>
-            <div>Rating  </div>  
-                <!-- </dt>
-                <dd></dd>
-                <dt>
-                    Price
-                </dt>
-                <dd>{{book.Price}}</dd>
-            </dl> -->
-        <!-- </div>
-        <!-- <div class="card-footer">
-        </div> -->
-        <!-- </div>
-
-</div>
-</div>
-</div>  -->
-
-<h4>Frequently viewed items</h4>
 <div class="row border border-2 border-Secondary p-3 rounded rounded-3" style="background-color: #e2e2e3;">
     <div *ngFor="let book of books" class="col-sm-3">
     <div>
       <div class="card mb-3">
         <div class="card-body">
             <img [src]="'https://localhost:44301/'+book.filePath" class="card-img-top" height="150" />
-          <h5 class="card-title"><a href="#" style="text-decoration: none;">{{book.title}}</a></h5>
+          <h5 class="card-title"><a [routerLink]="" (click)="GetBooK(book.bookId)" style="text-decoration: none;cursor:pointer;color: #0000EE">{{book.title}}</a></h5>
           <div class="card-text">
-          <span>Author: <b>{{book.userName}}</b></span><br>
+          <span>Author: <b>{{book.authorName}}</b></span><br>
+          <span>Publisher: {{book.publisher}}</span><br>
+          <span>Category: {{book.category}}</span><br>
           <span>Price: {{book.price | currency:'INR'}}</span><br>
         </div>
           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
         </div>
       </div>
     </div>
+</div>
+<div *ngIf="books?.length === 0">
+  No results were found matching your search criteria.
 </div>
 </div>

@@ -20,8 +20,6 @@ export class BookService{
         return this.http.post<any>(this._bookUrl, book);
       }
     editBook(id : number, book: any){
-        console.log(id);
-        console.log(book);
         return this.http.put<any>(this._updatebookurl, book);
     }
    

@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
   {
     this.authservice.loginUser(this.user()).subscribe(res=>{
       localStorage.setItem('token', res.token);
+      localStorage.setItem('showMybooks', res.showMybooks);
       this.toast.success({ detail: "Success Message", summary: "You have been Signed in successfully", duration: 5000});
       if(res.user.roleId == 1)
       {

@@ -1,25 +1,40 @@
 <div class="card">
     <div class="d-flex w-75">
-    <div>
-        <img class="" [src]="book.logo" height="300" width="300" >
+    <div class="p-4">
+        <img  [src]="'https://localhost:44301/'+bookModel.filePath" height="300" width="300" >
     </div>
-    <div style="margin-left: 10px;">
+    <div style="margin-left: 10px;" class="p-4">
         <dl>
             <dt>Author</dt>
-            <dd>{{book.author}}</dd>
+            <dd>{{bookModel.authorName}}</dd>
             <dt>Category</dt>
-            <dd>{{book.category}}</dd>
+            <dd>{{bookModel.category}}</dd>
             <dt>Publisher</dt>
-            <dd>{{book.publisher}}</dd>
+            <dd>{{bookModel.publisher}}</dd>
             <dt>Publisher Date</dt>
-            <dd>{{book.publisherDate}}</dd>
+            <dd>{{bookModel.publisherDate | date}}</dd>
             <dt>Chapters</dt>
-            <dd>{{book.chapters}}</dd>
+            <dd>{{bookModel.chapters}}</dd>
+            <div>
+             <button (click)="Buybook(bookModel.id)" class="btn btn-primary w-20">{{bookModel.price | currency:'INR' }} Ebook</button>
+            </div>
         </dl>
     </div>
 </div>
     <div class="card-body">
-      <h5 class="card-title">{{book.title}}</h5>
-      <div class="card-text"></div>
+      <h5 class="card-title">{{bookModel.title}}</h5>
+      <div class="card-text">
+          <p>{{bookModel.content}}</p><hr>
+      </div>
+      <div class="card-text">
+        <h6>Terms of Sale:</h6>
+            We guarantee the condition of every book as it's described on the Digital Books web
+            sites. If you're dissatisfied with your purchase (Incorrect Book/Not as
+            Described) or if the order hasn't arrived, you're eligible for a refund
+            within 24 hours of the estimated delivery date. If you've changed your mind about a
+            book that you've ordered, please use the Ask bookseller a question link to contact
+            us and we'll respond within 2 business days.
+    </div>
     </div>
   </div>
+ 

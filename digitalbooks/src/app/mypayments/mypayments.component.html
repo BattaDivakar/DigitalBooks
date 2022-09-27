@@ -1,0 +1,28 @@
+<div style="padding: 20px;"></div>
+<table class="table table-bordered" style="background-color: #e2e2e3;border-color: rgba(0, 0, 0, 0.26);">
+    <thead>
+        <tr>
+            <th style="width: 30%;text-align: center;">Invoice Number</th>
+            <th style="width: 22%;text-align: center;">Invoice Date</th>
+            <th style="width: 25%;">Book</th>
+            <th style="width: 12%;text-align: right;">Amount</th>
+            <th style="width: 11%;text-align: center;">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let payment of payments">
+            <td style="text-align: center;">{{payment.invoiceNumber}}</td>
+            <td style="text-align: center;">{{payment.invoiceDate | date}}</td>
+            <td>{{payment.title}}</td>
+            <td style="text-align: right;">{{payment.amount | currency:'INR'}}</td>
+            <td style="text-align: center;" class="text-success">{{payment.status}}</td>
+        </tr>
+        <tr *ngIf="payments?.length === 0">
+           <td colspan="5">
+               No payments found
+           </td>
+        </tr>
+    </tbody>
+</table>
+
+

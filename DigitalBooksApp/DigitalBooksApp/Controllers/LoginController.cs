@@ -47,10 +47,12 @@ namespace DigitalBooksApp.Controllers
         {
             IActionResult response = Unauthorized();
             var authenticateUser = AuthenticateUser(user);
+            DigitalbookDBContext dbContext = new DigitalbookDBContext();
             if (authenticateUser != null)
             {
                 var tokenString = GenerateToken(authenticateUser);
-                response = Ok(new { token = tokenString, user = authenticateUser });
+                var entity = dbContext.Invoices.FirstOrDefault(i => i.ReaderId == authenticateUser.Id);
+                response = Ok(new { token = tokenString, user = authenticateUser, showMybooks = (entity != null? true : false)});
             }
             return response;
         }

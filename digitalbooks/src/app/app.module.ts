@@ -18,6 +18,8 @@ import { AuthorComponent } from './author/author.component';
 import { ManagebookComponent } from './managebook/managebook.component';
 import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { MybooksComponent } from './mybooks/mybooks.component';
+import { MypaymentsComponent } from './mypayments/mypayments.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
     SignupComponent,
     AuthorComponent,
     ManagebookComponent,
-    BookdetailsComponent
+    BookdetailsComponent,
+    MybooksComponent,
+    MypaymentsComponent
   ],
   imports: [
     BrowserModule,
