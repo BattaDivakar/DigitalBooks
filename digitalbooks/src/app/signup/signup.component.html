@@ -1,13 +1,13 @@
 <div class="container-fluid flex justify-content-center"style="width:40%">
     <form [formGroup]="registerationForm" (ngSubmit) = "onSubmit()" class="border border-2 border-primary p-3 rounded rounded-3">
-       <h2><span class="bi bi-person-fill"></span>Sing Up</h2>
+       <h2><span class="bi bi-person-fill"></span>Sign Up</h2>
        <dl>
         <dt>
             User Name
         </dt>
         <dd>
             <input type="text" class="form-control" formControlName="userName" placeholder="First and last name"/>
-            <span *ngIf="!userName.valid && (userName.touched || userSubmitted)" class="text-danger">
+            <span *ngIf="!userName.valid && (userName.touched || userSubmitted)" class="text-danger" id="username-error-msg">
             Please provide user name</span>
         </dd>
            <dt>
@@ -16,7 +16,7 @@
            <dd>
                <input type="text" class="form-control" formControlName="email" placeholder="Email"/>
                 <span *ngIf="!email.valid && (email.touched || userSubmitted)">
-                    <span *ngIf ="email.hasError('required')" class="text-danger">
+                    <span *ngIf ="email.hasError('required')" class="text-danger" id="email-error-msg">
                         Please provide email id
                     </span>
                     <span *ngIf ="email.hasError('email')" class="text-danger">
@@ -30,7 +30,7 @@
             <dd>
             <input type="password" class="form-control" formControlName="password" placeholder="at least 6 characters"/>
             <span *ngIf="!password.valid && (password.touched || userSubmitted) ">
-                <span *ngIf="password.hasError('required')" class="text-danger">
+                <span *ngIf="password.hasError('required')" class="text-danger" id="password-error-msg">
                     Please provide password
                 </span>
                 <span *ngIf="password.hasError('minlength')" class="text-danger">
@@ -43,7 +43,7 @@
             </span>
             </dd>
        </dl>
-       <button type ="submit" class="btn btn-primary w-100">Sing Up</button>    
+       <button type ="submit" id ="singup-btn" class="btn btn-primary w-100">Sing Up</button>    
     </form>
 </div>
 

@@ -73,7 +73,6 @@ export class ManagebookComponent implements OnInit {
  
 
   onSubmit(): void{
-    console.log(this.bookData());
     this.bookSubmitted = true;
     if(this.bookForm.valid)
     {

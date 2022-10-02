@@ -1,0 +1,115 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/reader/activebooks",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "34552"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/reader/activebooks",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/reader/searchbooks",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "34552"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/reader/searchbooks",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/reader/getbook",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "34552"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/reader/getbook",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/reader/createinvoice",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "34552"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/reader/createinvoice",
+      "UpstreamHttpMethod": [ "Post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/reader/getmybooks",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "34552"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/reader/getmybooks",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/reader/getmypayments",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "34552"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/reader/getmypayments",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "51859"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/login",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/login/signUp",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "51859"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/login/signUp",
+      "UpstreamHttpMethod": [ "post" ]
+    },
+    {
+      "DownstreamPathTemplate": "/api/login/login",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": "51859"
+        }
+      ],
+      "UpstreamPathTemplate": "/api/gateway/login/login",
+      "UpstreamHttpMethod": [ "post" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:17366"
+  }
+}
