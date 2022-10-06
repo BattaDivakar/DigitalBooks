@@ -12,7 +12,7 @@ import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {path:"login", component:LoginComponent},
-  {path:"singup", component: SignupComponent},
+  {path:"signup", component: SignupComponent},
   {path:'booklist', component: BooklistComponent},
   {path:'', component:SearchbooksComponent},
   {path:'author', component:AuthorComponent},

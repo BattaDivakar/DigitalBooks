@@ -28,7 +28,8 @@ export class SignupComponent implements OnInit {
     this.registerationForm = new FormGroup({
       userName: new FormControl(null, Validators.required),
       email : new FormControl(null, [Validators.required, Validators.email]),
-      password : new FormControl(null, [Validators.required, Validators.minLength(6)])
+      password : new FormControl(null, [Validators.required, Validators.minLength(6)]),
+      role : new FormControl("2")
     });
   }
 
@@ -36,7 +37,7 @@ export class SignupComponent implements OnInit {
     this.userSubmitted = true;
     if(this.registerationForm.valid)
     {
-      if(this.hasEmailExisted(this.email.value))
+      if(this.hasEmailExisted(this.email.value, this.role.value))
       {
         this.toast.error({detail:"Error Message", summary: "An email already exists", duration: 5000});
       }
@@ -52,9 +53,9 @@ export class SignupComponent implements OnInit {
     }
   }
 
-  hasEmailExisted(email: any) :boolean{
+  hasEmailExisted(email: any, role: any) :boolean{
     if(this.userModels){
-      if(this.userModels.find((x:any)=> x.email.toUpperCase() === email.toUpperCase()))
+      if(this.userModels.find((x:any)=> x.email.toUpperCase() === email.toUpperCase() && x.roleId === Number(role)))
       {
         return true;
       }
@@ -70,7 +71,8 @@ users(input :any){
     return this.user = {
       userName : this.userName.value,
       email : this.email.value,
-      password : this.password.value 
+      password : this.password.value,
+      roleId : Number(this.role.value)
     }
   }
 
@@ -82,6 +84,9 @@ users(input :any){
   }
   get password(){
     return this.registerationForm.get("password") as FormControl;
+  }
+  get role(){
+    return this.registerationForm.get("role") as FormControl;
   }
 
 }

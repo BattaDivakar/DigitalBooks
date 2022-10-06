@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { buffer } from 'rxjs';
 import { AuthService } from '../services/auth.service';
 import { BookService } from '../services/book.service';
+import { environment } from 'src/environments/environment'; 
 
 @Component({
   selector: 'app-author',
@@ -12,6 +13,7 @@ import { BookService } from '../services/book.service';
 export class AuthorComponent implements OnInit {
   booklist: any;
   token : any;
+  baseImageUrl : string = environment.imageUrl;
   constructor(private _bookService:BookService,private _author : AuthService, private router: Router) { }
 
   ngOnInit(): void {

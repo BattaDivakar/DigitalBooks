@@ -2,15 +2,16 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
 import { UserData } from "../models/usermodel";
 import { JwtHelperService } from "@auth0/angular-jwt";
+import { environment } from "src/environments/environment";
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class AuthService{
-  _loginUrl="https://localhost:44301/api/login/login";
-  _singUpUrl="https://localhost:44301/api/login/singup";
-  _usersUrl="https://localhost:44301/api/login";
+  _loginUrl= environment.baseUrl+"login/login";
+  _singUpUrl=environment.baseUrl+"login/singup";
+  _usersUrl=environment.baseUrl+"login";
 
   constructor(private http:HttpClient, private jwt: JwtHelperService){}
 

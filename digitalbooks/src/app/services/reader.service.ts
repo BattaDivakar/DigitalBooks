@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import{ HttpClient, HttpParams} from "@angular/common/http"
+import { environment } from "src/environments/environment";
 
 
 @Injectable({
@@ -10,12 +11,12 @@ export class ReaderService{
 
     constructor(private http:HttpClient){}
 
-    _activeBooksUrl="https://localhost:44301/api/Reader/activeBooks";
-    _searchBooksUrl = "https://localhost:44301/api/Reader/searchBooks";
-    _bookDetails = "https://localhost:44301/api/Reader/GetBook";
-    _createInvoiceUrl = "https://localhost:44301/api/Reader/CreateInvoice";
-    _myBooksUrl = "https://localhost:44301/api/Reader/GetMyBooks";
-    _myPayments = "https://localhost:44301/api/Reader/GetMyPayments";
+    _activeBooksUrl= environment.baseUrl+"Reader/activeBooks";
+    _searchBooksUrl = environment.baseUrl+"Reader/searchBooks";
+    _bookDetails = environment.baseUrl+"Reader/getbook";
+    _createInvoiceUrl = environment.baseUrl+"Reader/createinvoice";
+    _myBooksUrl = environment.baseUrl+"Reader/GetMyBooks";
+    _myPayments = environment.baseUrl+"Reader/GetMyPayments";
 
     GetBooks(){
         return this.http.get(this._activeBooksUrl);

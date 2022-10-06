@@ -6,6 +6,7 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { AuthService } from '../services/auth.service';
 import { Book } from '../models/bookmodel';
 import { BookService } from '../services/book.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-managebook',
@@ -63,7 +64,7 @@ export class ManagebookComponent implements OnInit {
         logo : new FormControl(res.book.filePath, [Validators.required]),
         active : new FormControl(res.book.active, [Validators.required])
       });
-      this.url = "https://localhost:44301/"+res.book.filePath;
+      this.url = environment.imageUrl+res.book.filePath;
       this.oldfilePath = res.book.filePath;
     },
      res => console.log(res));

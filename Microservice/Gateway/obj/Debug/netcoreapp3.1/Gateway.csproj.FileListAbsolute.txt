@@ -47,3 +47,8 @@ C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\obj\Debug\netco
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\obj\Debug\netcoreapp3.1\Gateway.pdb
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\obj\Debug\netcoreapp3.1\Gateway.genruntimeconfig.cache
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\obj\Debug\netcoreapp3.1\Gateway.csproj.AssemblyReference.cache
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\old-ocelot.json
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Consul.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Ocelot.Provider.Consul.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard1.3\System.Net.Http.WinHttpHandler.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard1.3\System.Net.Http.WinHttpHandler.dll

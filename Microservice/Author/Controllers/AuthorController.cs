@@ -8,6 +8,7 @@ using Common.Models;
 using System.IO;
 using System.Net.Http.Headers;
 using Author.Services;
+using MassTransit;
 
 namespace Author.Controllers
 {
@@ -16,10 +17,12 @@ namespace Author.Controllers
     public class AuthorController : ControllerBase
     {
         IAuthorService authorservice;
+        IBus bus;
 
-        public AuthorController(IAuthorService _authorService)
+        public AuthorController(IAuthorService _authorService, IBus _bus)
         {
             authorservice = _authorService;
+            bus = _bus;
         }
         
         [HttpPost]
@@ -55,5 +58,18 @@ namespace Author.Controllers
         {
             return authorservice.UpdateBook(book);
         }
+
+        public async Task<IActionResult> BlockedBook(int bookid)
+        {
+            if(bookid > 0)
+            {
+                Uri uri = new Uri("rabbitmq:localhost/NotificationBlockedBookQueue");
+                var endpoint = await bus.GetSendEndpoint(uri);
+                await endpoint.Send(bookid);
+                return Ok(new { status = "Your request has been recived" });
+            }
+            return BadRequest();
+        }
+      
     }
 }

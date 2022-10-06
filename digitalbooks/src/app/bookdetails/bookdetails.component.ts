@@ -4,6 +4,7 @@ import { NgToastService } from 'ng-angular-popup';
 import { BookDetails } from '../models/bookdetailsmodel';
 import { AuthService } from '../services/auth.service';
 import { ReaderService } from '../services/reader.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-bookdetails',
@@ -14,6 +15,7 @@ export class BookdetailsComponent implements OnInit {
   bookId:number = 0
   bookModel: BookDetails = new BookDetails();
   invoiceDTO : any;
+  baseimageUrl : string = environment.imageUrl;
   
   constructor(private route: ActivatedRoute, private readerservice : ReaderService, 
     private authservice: AuthService, private toast: NgToastService, private router : Router) {  }
@@ -21,7 +23,6 @@ export class BookdetailsComponent implements OnInit {
   ngOnInit(): void {
     let sub = this.route.params.subscribe(params =>{
       if(params['id']){
-        console.log(atob(params['id']));
         this.bookId = Number(atob(params['id']));
       }
     });

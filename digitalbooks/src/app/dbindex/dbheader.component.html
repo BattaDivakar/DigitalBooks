@@ -4,7 +4,7 @@
      <h6 class="textheader">Digital Books</h6>
    </div>
    <div style="padding-top: 1rem">
-      <a *ngIf= "!loggedIn()" routerLink ="singup" class= "me-2 btn" style="background-color: #b7b9be !important;">Sign up</a>
+      <a *ngIf= "!loggedIn()" routerLink ="signup" class= "me-2 btn" style="background-color: #b7b9be !important;">Sign up</a>
       <a *ngIf= "!loggedIn()" routerLink ="login" class="btn" style="background-color: #b7b9be !important;" >Sign in</a>
       <a *ngIf= "loggedIn() && (showmybooks()=='true')" routerLink ="mybooks" class= "me-2 btn" style="background-color: #b7b9be !important;">My Books</a>
       <a *ngIf= "loggedIn() && (showmybooks()=='true')" routerLink ="mypayments" class="me-2 btn" style="background-color: #b7b9be !important;" >My Payments</a>

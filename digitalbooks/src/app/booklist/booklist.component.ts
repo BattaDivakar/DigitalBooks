@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { BookService } from '../services/book.service';
 import { ReaderService } from '../services/reader.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-booklist',
@@ -17,6 +18,7 @@ export class BooklistComponent implements OnInit {
   Title: string ="";
   Publisher : string = "";
   Category: string="";
+  baseBookUrl: string = environment.imageUrl;
 
   ngOnInit(): void {
     let sub = this.route.params.subscribe(params =>{

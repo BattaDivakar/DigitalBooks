@@ -61,3 +61,5 @@ C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Reader\obj\Debug\netcor
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Reader\obj\Debug\netcoreapp3.1\Reader.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Reader\obj\Debug\netcoreapp3.1\Reader.pdb
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Reader\obj\Debug\netcoreapp3.1\Reader.genruntimeconfig.cache
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Reader\bin\Debug\netcoreapp3.1\Consul.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Reader\obj\Debug\netcoreapp3.1\Reader.csproj.CopyComplete

@@ -3,7 +3,7 @@
     <div>
       <div class="card mb-3">
         <div class="card-body">
-            <img [src]="'https://localhost:44301/'+book.filePath" class="card-img-top" height="150" />
+            <img [src]="this.baseImageUrl+book.filePath" class="card-img-top" height="150" />
           <h5 class="card-title" style="color:black">{{book.title}}</h5>
           <div class="card-text">
           <span>Author: <b>{{book.authorName}}</b></span><br>

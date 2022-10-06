@@ -1,115 +1,124 @@
 {
   "Routes": [
     {
+      "UseServiceDiscovery": true,
       "DownstreamPathTemplate": "/api/reader/activebooks",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": "34552"
-        }
-      ],
+      "ServiceName": "readerService",
       "UpstreamPathTemplate": "/api/gateway/reader/activebooks",
       "UpstreamHttpMethod": [ "Get" ]
     },
     {
+      "UseServiceDiscovery": true,
       "DownstreamPathTemplate": "/api/reader/searchbooks",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": "34552"
-        }
-      ],
+      "ServiceName": "readerService",
       "UpstreamPathTemplate": "/api/gateway/reader/searchbooks",
       "UpstreamHttpMethod": [ "Get" ]
     },
     {
+      "UseServiceDiscovery": true,
       "DownstreamPathTemplate": "/api/reader/getbook",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": "34552"
-        }
-      ],
+      "ServiceName": "readerService",
       "UpstreamPathTemplate": "/api/gateway/reader/getbook",
       "UpstreamHttpMethod": [ "Get" ]
     },
     {
+      "UseServiceDiscovery": true,
       "DownstreamPathTemplate": "/api/reader/createinvoice",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": "34552"
-        }
-      ],
+      "ServiceName": "readerService",
       "UpstreamPathTemplate": "/api/gateway/reader/createinvoice",
       "UpstreamHttpMethod": [ "Post" ]
     },
     {
+      "UseServiceDiscovery": true,
       "DownstreamPathTemplate": "/api/reader/getmybooks",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": "34552"
-        }
-      ],
+      "ServiceName": "readerService",
       "UpstreamPathTemplate": "/api/gateway/reader/getmybooks",
       "UpstreamHttpMethod": [ "Get" ]
     },
     {
+      "UseServiceDiscovery": true,
       "DownstreamPathTemplate": "/api/reader/getmypayments",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": "34552"
-        }
-      ],
+      "ServiceName": "readerService",
       "UpstreamPathTemplate": "/api/gateway/reader/getmypayments",
       "UpstreamHttpMethod": [ "Get" ]
     },
     {
+      "UseServiceDiscovery": true,
       "DownstreamPathTemplate": "/api/login",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": "51859"
-        }
-      ],
+      "ServiceName": "authorService",
       "UpstreamPathTemplate": "/api/gateway/login",
       "UpstreamHttpMethod": [ "Get" ]
     },
     {
-      "DownstreamPathTemplate": "/api/login/signUp",
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/login/signup",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": "51859"
-        }
-      ],
-      "UpstreamPathTemplate": "/api/gateway/login/signUp",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/login/signup",
       "UpstreamHttpMethod": [ "post" ]
     },
     {
+      "UseServiceDiscovery": true,
       "DownstreamPathTemplate": "/api/login/login",
       "DownstreamScheme": "http",
-      "DownstreamHostAndPorts": [
-        {
-          "Host": "localhost",
-          "Port": "51859"
-        }
-      ],
+      "ServiceName": "authorService",
       "UpstreamPathTemplate": "/api/gateway/login/login",
       "UpstreamHttpMethod": [ "post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/author/book",
+      "DownstreamScheme": "http",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/author/book",
+      "UpstreamHttpMethod": [ "post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/author/upload",
+      "DownstreamScheme": "http",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/author/upload",
+      "UpstreamHttpMethod": [ "post" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/author/get",
+      "DownstreamScheme": "http",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/author/get",
+      "UpstreamHttpMethod": [ "get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/author/getupdatebook",
+      "DownstreamScheme": "http",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/author/getupdatebook",
+      "UpstreamHttpMethod": [ "get" ]
+    },
+    {
+      "UseServiceDiscovery": true,
+      "DownstreamPathTemplate": "/api/author/updatebook",
+      "DownstreamScheme": "http",
+      "ServiceName": "authorService",
+      "UpstreamPathTemplate": "/api/gateway/author/updatebook",
+      "UpstreamHttpMethod": [ "put" ]
     }
   ],
   "GlobalConfiguration": {
-    "BaseUrl": "http://localhost:17366"
+    //"BaseUrl": "http://localhost:17366"
+    "ServiceDiscoveryProvider": {
+      "Host": "localhost",
+      "Port": "8500",
+      "Type": "Consul"
+    }
   }
 }
