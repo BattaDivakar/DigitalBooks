@@ -1,4 +1,5 @@
 ﻿using Common.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace Author.Services
     {
         IActionResult Book(Book book);
 
-        IActionResult Upload();
+        //IActionResult Upload(FormFile file);
 
         IEnumerable<Book> GetAuthorBooks(int id);
 

@@ -6,7 +6,15 @@ C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcor
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Author.runtimeconfig.dev.json
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Author.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Author.pdb
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Automatonymous.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Consul.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\GreenPipes.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\MassTransit.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\MassTransit.AspNetCoreIntegration.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\MassTransit.ExtensionsDependencyInjectionIntegration.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\MassTransit.RabbitMqTransport.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.Bcl.AsyncInterfaces.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -17,6 +25,10 @@ C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcor
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Diagnostics.HealthChecks.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Hosting.Abstractions.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
@@ -27,7 +39,10 @@ C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcor
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\NewId.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\RabbitMQ.Client.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
@@ -35,6 +50,7 @@ C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcor
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\System.Threading.Channels.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
@@ -62,5 +78,8 @@ C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\obj\Debug\netcor
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\obj\Debug\netcoreapp3.1\Author.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\obj\Debug\netcoreapp3.1\Author.pdb
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\obj\Debug\netcoreapp3.1\Author.genruntimeconfig.cache
-C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Consul.dll
-C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\obj\Debug\netcoreapp3.1\Author.csproj.CopyComplete
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\obj\Debug\netcoreapp3.1\Author.MvcApplicationPartsAssemblyInfo.cs

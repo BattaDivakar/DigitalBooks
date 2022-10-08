@@ -43,7 +43,7 @@ export class LoginComponent implements OnInit {
     
     },
     res=>{
-      this.toast.error({ detail: "Error Message",  summary:"User id or password is wrong", duration:5000})
+      this.toast.error({ detail: "Error Message",  summary:"Email or password is wrong", duration:5000})
     });
   }
 
@@ -54,7 +54,14 @@ export class LoginComponent implements OnInit {
        userName: "",
     }
   }
-    
+
+  TestUserFormdata():any{
+    return {
+       email : this.email.value,
+       password:this.password.value,
+    }
+  }
+
   get email(){
     return this.loginForm.get("email") as FormControl;
   }

@@ -1,6 +1,7 @@
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\appsettings.Development.json
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\appsettings.json
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Ocelot.json
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\old-ocelot.json
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Gateway.exe
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Gateway.deps.json
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Gateway.runtimeconfig.json
@@ -9,6 +10,7 @@ C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netco
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Gateway.pdb
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Gateway.Views.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Gateway.Views.pdb
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Consul.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\FluentValidation.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.MiddlewareAnalysis.dll
@@ -18,6 +20,10 @@ C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netco
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Ocelot.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Ocelot.Provider.Consul.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard1.3\System.Net.Http.WinHttpHandler.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard1.3\System.Net.Http.WinHttpHandler.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\obj\Debug\netcoreapp3.1\Gateway.csproj.AssemblyReference.cache
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\obj\Debug\netcoreapp3.1\Gateway.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\obj\Debug\netcoreapp3.1\Gateway.AssemblyInfoInputs.cache
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\obj\Debug\netcoreapp3.1\Gateway.AssemblyInfo.cs
@@ -46,9 +52,3 @@ C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\obj\Debug\netco
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\obj\Debug\netcoreapp3.1\Gateway.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\obj\Debug\netcoreapp3.1\Gateway.pdb
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\obj\Debug\netcoreapp3.1\Gateway.genruntimeconfig.cache
-C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\obj\Debug\netcoreapp3.1\Gateway.csproj.AssemblyReference.cache
-C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\old-ocelot.json
-C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Consul.dll
-C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\Ocelot.Provider.Consul.dll
-C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netstandard1.3\System.Net.Http.WinHttpHandler.dll
-C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Gateway\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard1.3\System.Net.Http.WinHttpHandler.dll

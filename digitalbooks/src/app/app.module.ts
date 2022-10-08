@@ -12,7 +12,7 @@ import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import { NgToastModule } from 'ng-angular-popup';
-import { HttpClientModule} from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS} from "@angular/common/http";
 import { BookService } from './services/book.service';
 import { AuthorComponent } from './author/author.component';
 import { ManagebookComponent } from './managebook/managebook.component';
@@ -20,6 +20,7 @@ import { BookdetailsComponent } from './bookdetails/bookdetails.component';
 import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { MybooksComponent } from './mybooks/mybooks.component';
 import { MypaymentsComponent } from './mypayments/mypayments.component';
+import { TokenInterceptorService } from './services/tokenInceptorservice';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,13 @@ import { MypaymentsComponent } from './mypayments/mypayments.component';
     NgToastModule,
     HttpClientModule
   ],
-  providers: [AuthService, BookService, {provide:JWT_OPTIONS,useValue:JWT_OPTIONS},JwtHelperService],
+  providers: [
+    AuthService, 
+    BookService, 
+    {provide:JWT_OPTIONS,useValue:JWT_OPTIONS},
+    JwtHelperService,
+    {provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true}
+  ],
   bootstrap: [DBIndexComponent]
 })
 export class AppModule { }

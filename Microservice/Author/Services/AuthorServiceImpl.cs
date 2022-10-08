@@ -1,4 +1,5 @@
 ﻿using Common.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
@@ -91,28 +92,27 @@ namespace Author.Services
             return response = Ok(new { text = "success" });
         }
 
-        public IActionResult Upload()
-        {
-            var file = Request.Form.Files[0];
-            var foldername = "Images";
-            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), foldername);
-            if (file.Length > 0)
-            {
-                var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-                fileName = DateTime.Now.ToFileTime() + "_" + fileName;
-                var fullPath = Path.Combine(pathToSave, fileName);
-                var dbPath = Path.Combine(foldername, fileName);
-                using (var stream = new FileStream(fullPath, FileMode.Create))
-                {
-                    file.CopyTo(stream);
-                }
-                return Ok(new { dbPath });
-            }
-            else
-            {
-                return BadRequest();
-            }
-        }
+        //public IActionResult Upload(IFormFile file)
+        //{
+        //    var foldername = "Images";
+        //    var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), foldername);
+        //    if (file.Length > 0)
+        //    {
+        //        var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+        //        fileName = DateTime.Now.ToFileTime() + "_" + fileName;
+        //        var fullPath = Path.Combine(pathToSave, fileName);
+        //        var dbPath = Path.Combine(foldername, fileName);
+        //        using (var stream = new FileStream(fullPath, FileMode.Create))
+        //        {
+        //            file.CopyTo(stream);
+        //        }
+        //        return Ok(new { dbPath });
+        //    }
+        //    else
+        //    {
+        //        return BadRequest();
+        //    }
+        //}
 
         private void Remove(string filepath)
         {

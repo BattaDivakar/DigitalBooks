@@ -62,7 +62,7 @@
       "DownstreamScheme": "http",
       "ServiceName": "authorService",
       "UpstreamPathTemplate": "/api/gateway/login/signup",
-      "UpstreamHttpMethod": [ "post" ]
+      "UpstreamHttpMethod": [ "Post" ]
     },
     {
       "UseServiceDiscovery": true,
@@ -70,7 +70,7 @@
       "DownstreamScheme": "http",
       "ServiceName": "authorService",
       "UpstreamPathTemplate": "/api/gateway/login/login",
-      "UpstreamHttpMethod": [ "post" ]
+      "UpstreamHttpMethod": [ "Post" ]
     },
     {
       "UseServiceDiscovery": true,
@@ -78,7 +78,7 @@
       "DownstreamScheme": "http",
       "ServiceName": "authorService",
       "UpstreamPathTemplate": "/api/gateway/author/book",
-      "UpstreamHttpMethod": [ "post" ]
+      "UpstreamHttpMethod": [ "Post" ]
     },
     {
       "UseServiceDiscovery": true,
@@ -86,15 +86,15 @@
       "DownstreamScheme": "http",
       "ServiceName": "authorService",
       "UpstreamPathTemplate": "/api/gateway/author/upload",
-      "UpstreamHttpMethod": [ "post" ]
+      "UpstreamHttpMethod": [ "Post" ]
     },
     {
       "UseServiceDiscovery": true,
-      "DownstreamPathTemplate": "/api/author/get",
+      "DownstreamPathTemplate": "/api/author/GetAuthorBooks",
       "DownstreamScheme": "http",
       "ServiceName": "authorService",
-      "UpstreamPathTemplate": "/api/gateway/author/get",
-      "UpstreamHttpMethod": [ "get" ]
+      "UpstreamPathTemplate": "/api/gateway/author/GetAuthorBooks",
+      "UpstreamHttpMethod": [ "Get" ]
     },
     {
       "UseServiceDiscovery": true,
@@ -102,7 +102,7 @@
       "DownstreamScheme": "http",
       "ServiceName": "authorService",
       "UpstreamPathTemplate": "/api/gateway/author/getupdatebook",
-      "UpstreamHttpMethod": [ "get" ]
+      "UpstreamHttpMethod": [ "Get" ]
     },
     {
       "UseServiceDiscovery": true,
@@ -110,7 +110,7 @@
       "DownstreamScheme": "http",
       "ServiceName": "authorService",
       "UpstreamPathTemplate": "/api/gateway/author/updatebook",
-      "UpstreamHttpMethod": [ "put" ]
+      "UpstreamHttpMethod": [ "Put" ]
     }
   ],
   "GlobalConfiguration": {

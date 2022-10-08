@@ -13,7 +13,7 @@ export class BookService{
 
     _bookUrl= environment.baseUrl+"author/book";
     _uploadUrl = environment.baseUrl+"author/upload";
-    _authorBookUrl = environment.baseUrl+"author";
+    _authorBookUrl = environment.baseUrl+"author/getauthorbooks";
     _getupdatebook = environment.baseUrl+"author/getUpdatebook";
     _updatebookurl = environment.baseUrl+"author/updatebook";
     
@@ -23,7 +23,9 @@ export class BookService{
     editBook(id : number, book: any){
         return this.http.put<any>(this._updatebookurl, book);
     }
-   
+    getToken(){
+        return localStorage.getItem('token');
+      }
     uploadImage(formdata: any){
         return this.http.post<any>(this._uploadUrl, formdata);
     }

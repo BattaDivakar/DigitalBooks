@@ -2,11 +2,12 @@
 <table class="table table-bordered" style="background-color: #e2e2e3;border-color: rgba(0, 0, 0, 0.26);">
     <thead>
         <tr>
-            <th style="width: 30%;text-align: center;">Invoice Number</th>
-            <th style="width: 22%;text-align: center;">Invoice Date</th>
-            <th style="width: 25%;">Book</th>
+            <th style="width: 29%;text-align: center;">Invoice Number</th>
+            <th style="width: 20%;text-align: center;">Invoice Date</th>
+            <th style="width: 18%;">Book</th>
             <th style="width: 12%;text-align: right;">Amount</th>
             <th style="width: 11%;text-align: center;">Status</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -16,9 +17,10 @@
             <td>{{payment.title}}</td>
             <td style="text-align: right;">{{payment.amount | currency:'INR'}}</td>
             <td style="text-align: center;" class="text-success">{{payment.status}}</td>
+            <td><a  class="btn btn-primary" (click) ="this.generatePDF(this.payment)">Download</a></td>
         </tr>
         <tr *ngIf="payments?.length === 0">
-           <td colspan="5">
+           <td colspan="6">
                No payments found
            </td>
         </tr>

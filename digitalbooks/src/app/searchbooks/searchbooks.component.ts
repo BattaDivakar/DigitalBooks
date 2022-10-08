@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-searchbooks',
@@ -12,9 +13,13 @@ export class SearchbooksComponent implements OnInit {
   Publisher : string = "";
   Category: string="";
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private author : AuthService) { }
 
   ngOnInit(): void {
+    if(this.author.getroleid() === 1)
+    {
+      this.router.navigate(['/author'])
+    }
   }
 
   SearchBookList()

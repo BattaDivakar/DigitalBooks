@@ -29,7 +29,7 @@ export class SignupComponent implements OnInit {
       userName: new FormControl(null, Validators.required),
       email : new FormControl(null, [Validators.required, Validators.email]),
       password : new FormControl(null, [Validators.required, Validators.minLength(6)]),
-      role : new FormControl("2")
+      roleId : new FormControl("2")
     });
   }
 
@@ -43,7 +43,7 @@ export class SignupComponent implements OnInit {
       }
       else
       {
-        this.authservice.singupUser(this.userData()).subscribe(res=>{
+        this.authservice.signupUser(this.userData()).subscribe(res=>{
           this.toast.success({detail: "Success Message", summary: "Account has been created successfully.", duration: 5000})
           this.registerationForm.reset();
           this.userSubmitted = false;
@@ -86,7 +86,7 @@ users(input :any){
     return this.registerationForm.get("password") as FormControl;
   }
   get role(){
-    return this.registerationForm.get("role") as FormControl;
+    return this.registerationForm.get("roleId") as FormControl;
   }
 
 }

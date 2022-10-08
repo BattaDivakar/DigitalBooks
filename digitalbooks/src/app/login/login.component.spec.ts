@@ -1,137 +1,89 @@
-// import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
-// import { HttpClientModule} from "@angular/common/http";
-// import { AuthService } from '../services/auth.service';
-// import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
-// import { ReactiveFormsModule } from '@angular/forms';
-// import { LoginComponent } from './login.component';
+import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
+import { HttpClientModule} from "@angular/common/http";
+import { AuthService } from '../services/auth.service';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login.component';
 
 
-// describe('LoginComponent', () => {
-//   let component: LoginComponent;
-//   let fixture: ComponentFixture<LoginComponent>;
-//   let validUser = { userName : "divakar", email: "divakar.batta@gmail.com", password:"123456"};
-//   let blankUser = {userName: "", email: "", password: ""}; 
-// //   const authServiceSpy = jasmine.createSpyObj('AuthService', ['singupUser']);
+describe('LoginComponent', () => {
+  let component: LoginComponent;
+  let fixture: ComponentFixture<LoginComponent>;
+  let validUser = { email: "divakar.batta@gmail.com", password:"123456"};
+  let blankUser = { email: "", password: ""}; 
 
-//   beforeEach(async () => {
-//     await TestBed.configureTestingModule({
-//       declarations: [ LoginComponent ],
-//       imports: [
-//         HttpClientModule,
-//         ReactiveFormsModule
-//       ],
-//      providers: [ {provide:JWT_OPTIONS,useValue:JWT_OPTIONS},JwtHelperService]
-//     })
-//     .compileComponents();
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ LoginComponent ],
+      imports: [
+        HttpClientModule,
+        ReactiveFormsModule
+      ],
+     providers: [ {provide:JWT_OPTIONS,useValue:JWT_OPTIONS},JwtHelperService]
+    })
+    .compileComponents();
 
-//     fixture = TestBed.createComponent(LoginComponent);
-//     component = fixture.componentInstance;
-//     fixture.detectChanges();
-//   });
-
+    fixture = TestBed.createComponent(LoginComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
 
 
-//   function updateForm(userEmail:any, userPassword :any) {
-//     component.loginForm.controls['email'].setValue(userEmail);
-//     component.loginForm.controls['password'].setValue(userPassword);
-//   }
+
+  function updateForm(userEmail:any, userPassword :any) {
+    component.loginForm.controls['email'].setValue(userEmail);
+    component.loginForm.controls['password'].setValue(userPassword);
+  }
 
 
-//   it('should create', () => {
-//     expect(component).toBeTruthy();
-//   });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 
-// //   it('component initial state', () => {
-// //     expect(component.userSubmitted).toBeFalsy();
-// //     expect(component.registerationForm).toBeDefined();
-// //     expect(component.registerationForm.invalid).toBeTruthy();
-// //   });
-// //    it('form value should update from when u change the input', (() => {
-// //     updateForm(validUser.userName,validUser.email, validUser.password);
-// //     expect(component.registerationForm.value).toEqual(component.userData());
-// //   }));
-// //   it('Form invalid should be true when form is invalid', (() => {
-// //     updateForm(blankUser.userName, blankUser.email, blankUser.password);
-// //     expect(component.registerationForm.invalid).toBeTruthy();
-// //   }));
+  it('component initial state', () => {
+    expect(component.loginForm).toBeDefined();
+    expect(component.loginForm.invalid).toBeTruthy();
+  });
+   it('form value should update from when u change the input', (() => {
+    updateForm(validUser.email, validUser.password);
+    expect(component.loginForm.value).toEqual(component.TestUserFormdata());
+  }));
 
-//   it('created a form with username, email and password input and singup button', () => {
-//     // const fixture = TestBed.createComponent(LoginComponent);
-//     const usernameContainer = fixture.debugElement.nativeElement.querySelector('#userName');
-//     const passwordContainer = fixture.debugElement.nativeElement.querySelector('#password');
-//     const emailContainer = fixture.debugElement.nativeElement.querySelector('#email');
-//     const singupBtnContainer = fixture.debugElement.nativeElement.querySelector('#singup-btn');
-//     expect(usernameContainer).toBeDefined();
-//     expect(passwordContainer).toBeDefined();
-//     expect(emailContainer).toBeDefined();
-//     expect(singupBtnContainer).toBeDefined();
-//   });
+  it('Form invalid should be true when form is invalid', (() => {
+    updateForm(blankUser.email, blankUser.password);
+    expect(component.loginForm.invalid).toBeTruthy();
+  }));
 
-// //   it('Display Username Error Msg when Username is blank', () => {
-// //     updateForm(blankUser.userName, validUser.email, validUser.password);
-// //     fixture.detectChanges();
-// // ​
-// //     const button = fixture.debugElement.nativeElement.querySelector('button');
-// //     button.click();
-// //     fixture.detectChanges();
-// // ​
-// //     const usernameErrorMsg = fixture.debugElement.nativeElement.querySelector('#username-error-msg');
-// //     expect(usernameErrorMsg).toBeDefined();
-// //     expect(usernameErrorMsg.innerHTML).toContain('Please provide user name');
-// //   });
+  it('created a form with email and password input and login button', () => {
+    const fixture = TestBed.createComponent(LoginComponent);
+    const passwordContainer = fixture.debugElement.nativeElement.querySelector('#password');
+    const emailContainer = fixture.debugElement.nativeElement.querySelector('#email');
+    const loginBtnContainer = fixture.debugElement.nativeElement.querySelector('#login-btn');
+    expect(passwordContainer).toBeDefined();
+    expect(emailContainer).toBeDefined();
+    expect(loginBtnContainer).toBeDefined();
+  });
 
-// //   it('Display Email Error Msg when email is blank', () => {
-// //     updateForm(validUser.userName, blankUser.email, validUser.password);
-// //     fixture.detectChanges();
-// // ​
-// //     const button = fixture.debugElement.nativeElement.querySelector('button');
-// //     button.click();
-// //     fixture.detectChanges();
-// // ​
-// //     const emailErrorMsg = fixture.debugElement.nativeElement.querySelector('#email-error-msg');
-// //     expect(emailErrorMsg).toBeDefined();
-// //     expect(emailErrorMsg.innerHTML).toContain('Please provide email id');
-// //   });
-// //   it('Display Password Error Msg when password is blank', () => {
-// //     updateForm(validUser.userName, validUser.email, blankUser.password);
-// //     fixture.detectChanges();
-// // ​
-// //     const button = fixture.debugElement.nativeElement.querySelector('button');
-// //     button.click();
-// //     fixture.detectChanges();
-// // ​
-// //     const passwordErrorMsg = fixture.debugElement.nativeElement.querySelector('#password-error-msg');
-// //     expect(passwordErrorMsg).toBeDefined();
-// //     expect(passwordErrorMsg.innerHTML).toContain('Please provide password');
-// //   });
+    it('Display disabled login button when email is blank', () => {
+    updateForm(blankUser.email, validUser.password);
+    fixture.detectChanges();
+​
+    const button = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+    fixture.detectChanges();
+​
+    expect(component.loginForm.invalid).toBeTruthy();
+  });
 
-// //   it('Display user name, email and password Error Msg when form is blank', () => {
-// //     updateForm(blankUser.userName, blankUser.email, blankUser.password);
-// //     fixture.detectChanges();
-// // ​
-// //     const button = fixture.debugElement.nativeElement.querySelector('button');
-// //     button.click();
-// //     fixture.detectChanges();
+    it('Display Username Error Msg when Username is blank', () => {
+    updateForm(validUser.email, blankUser.password);
+    fixture.detectChanges();
+​
+    const button = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+    fixture.detectChanges();
 
-// //     const usernameErrorMsg = fixture.debugElement.nativeElement.querySelector('#username-error-msg');
-// //     ​const emailErrorMsg = fixture.debugElement.nativeElement.querySelector('#email-error-msg');
-// //     const passwordErrorMsg = fixture.debugElement.nativeElement.querySelector('#password-error-msg');
-// //     expect(usernameErrorMsg).toBeDefined();
-// //     expect(usernameErrorMsg.innerHTML).toContain('Please provide user name');
-// //     expect(emailErrorMsg).toBeDefined();
-// //     expect(emailErrorMsg.innerHTML).toContain('Please provide email id');
-// //     expect(passwordErrorMsg).toBeDefined();
-// //     expect(passwordErrorMsg.innerHTML).toContain('Please provide password');
-// //   });
+​    expect(component.loginForm.invalid).toBeTruthy();
+  });
 
-// //   it('authService singupUser() should called ', fakeAsync(() => {
-// //     updateForm(validUser.userName, validUser.email, validUser.password);
-// //     fixture.detectChanges();
-// //     const button = fixture.debugElement.nativeElement.querySelector('button');
-// //     button.click();
-// //     fixture.detectChanges();
-// // ​
-// //     expect(authServiceSpy.singupUser).toHaveBeenCalled();
-// //   }));
-
-// });
+});

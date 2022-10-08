@@ -10,8 +10,8 @@ import { environment } from "src/environments/environment";
 
 export class AuthService{
   _loginUrl= environment.baseUrl+"login/login";
-  _singUpUrl=environment.baseUrl+"login/singup";
-  _usersUrl=environment.baseUrl+"login";
+  _signUpUrl= environment.baseUrl+"login/signup";
+  _usersUrl= environment.baseUrl+"login";
 
   constructor(private http:HttpClient, private jwt: JwtHelperService){}
 
@@ -28,8 +28,8 @@ export class AuthService{
     loginUser(user:any){
       return this.http.post<any>(this._loginUrl, user);
     }
-    singupUser(user: any){
-      return this.http.post<any>(this._singUpUrl, user);
+    signupUser(user: any){
+      return this.http.post<any>(this._signUpUrl, user);
     }
     users(){
        return this.http.get(this._usersUrl);
@@ -40,5 +40,8 @@ export class AuthService{
     getCurrentUserid(): number{
        return Number(this.jwt.decodeToken(this.getToken()?.toString())?.unique_name);
     }
+    getroleid(): number{
+      return Number(this.jwt.decodeToken(this.getToken()?.toString())?.role);
+   }
    
 }

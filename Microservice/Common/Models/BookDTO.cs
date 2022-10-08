@@ -29,7 +29,7 @@ namespace Common.Models
         public decimal Price { get; set; }
         public string FilePath { get; set; }
         public string Publisher { get; set; }
-
+        public bool Active { get; set; }
     }
 
 }

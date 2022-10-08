@@ -8,7 +8,8 @@
           <div class="card-text">
           <span>Author: <b>{{book.authorName}}</b></span><br>
         <div style="text-align:center; padding-top: 5px;">
-          <a href="#" class="btn btn-primary w-75">Open</a>
+          <a href="#" *ngIf="book.active" class="btn btn-primary w-75">Open</a>
+          <a href="#" *ngIf="!book.active" class="btn btn-secondary w-75" style="cursor: not-allowed;">Blocked</a>
         </div>
       </div>
     </div>

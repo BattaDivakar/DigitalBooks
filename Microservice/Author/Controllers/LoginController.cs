@@ -25,7 +25,7 @@ namespace Author.Controllers
         }
 
         [HttpPost]
-        [Route("singup")]
+        [Route("signup")]
         public IActionResult SignUp(User user)
         {
             return loginservice.SignUp(user);

@@ -88,7 +88,7 @@ namespace Reader.Services
             return (from b in db.Books
                     join u in db.Users on b.AuthorId equals u.Id
                     join i in db.Invoices on id equals i.ReaderId
-                    where b.Active == true && i.ReaderId == id && i.BookId == b.Id && i.Status == 1
+                    where i.ReaderId == id && i.BookId == b.Id && i.Status == 1
                     orderby b.Id
                     select new SearchBookDTO
                     {
@@ -99,6 +99,7 @@ namespace Reader.Services
                         FilePath = b.FilePath,
                         Price = b.Price,
                         AuthorName = u.UserName,
+                        Active = b.Active
                     }).ToList();
         }
 
