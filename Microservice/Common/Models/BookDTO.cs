@@ -30,6 +30,8 @@ namespace Common.Models
         public string FilePath { get; set; }
         public string Publisher { get; set; }
         public bool Active { get; set; }
+
+        public bool CancelFlag { get; set; }
     }
 
 }

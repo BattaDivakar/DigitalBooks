@@ -1,0 +1,13 @@
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Common\bin\Release\netcoreapp3.1\Common.deps.json
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Common\bin\Release\netcoreapp3.1\Common.runtimeconfig.json
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Common\bin\Release\netcoreapp3.1\Common.runtimeconfig.dev.json
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Common\bin\Release\netcoreapp3.1\Common.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Common\bin\Release\netcoreapp3.1\Common.pdb
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Common\obj\Release\netcoreapp3.1\Common.csproj.AssemblyReference.cache
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Common\obj\Release\netcoreapp3.1\Common.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Common\obj\Release\netcoreapp3.1\Common.AssemblyInfoInputs.cache
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Common\obj\Release\netcoreapp3.1\Common.AssemblyInfo.cs
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Common\obj\Release\netcoreapp3.1\Common.csproj.CoreCompileInputs.cache
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Common\obj\Release\netcoreapp3.1\Common.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Common\obj\Release\netcoreapp3.1\Common.pdb
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Common\obj\Release\netcoreapp3.1\Common.genruntimeconfig.cache

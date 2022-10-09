@@ -11,6 +11,7 @@ using Author.Services;
 using MassTransit;
 using System.Net;
 using Microsoft.AspNetCore.Authorization;
+using Azure.Storage.Blobs;
 
 namespace Author.Controllers
 {
@@ -38,21 +39,21 @@ namespace Author.Controllers
 
         [HttpPost, DisableRequestSizeLimit]
         [Route("upload")]
-        public IActionResult upload()
+        public async Task<IActionResult> upload()
         {
             var file = Request.Form.Files[0];
-            var foldername = "Images";
-            var pathToSave = Path.Combine(Directory.GetCurrentDirectory(), foldername);
             if (file.Length > 0)
             {
                 var fileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-                fileName = DateTime.Now.ToFileTime() + "_" + fileName;
-                var fullPath = Path.Combine(pathToSave, fileName);
-                var dbPath = Path.Combine(foldername, fileName);
-                using (var stream = new FileStream(fullPath, FileMode.Create))
-                {
-                    file.CopyTo(stream);
-                }
+                var _filename = Path.GetFileNameWithoutExtension(fileName);
+                fileName = _filename + DateTime.Now.ToString("yyyyMMddHHmmss") + ".jpg";
+                var dbPath =  fileName;
+                string connectionstring = "DefaultEndpointsProtocol=https;AccountName=cogdotnet1709;AccountKey=/GWEZ+To7rSNMRaD6jJ/WSoYwRrt31ALkYUUiBoklLe1m9VZnm/1vTap1WBeom5X05QtJbUFiQ0V+AStZF6Amw==;EndpointSuffix=core.windows.net";
+                string containerName = "images";
+                BlobContainerClient container = new BlobContainerClient(connectionstring, containerName);
+                var blob = container.GetBlobClient(fileName);
+                var blobstream = file.OpenReadStream();
+                await blob.UploadAsync(blobstream);
                 return Ok(new { dbPath });
             }
             else

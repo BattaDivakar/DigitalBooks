@@ -39,7 +39,9 @@ namespace Reader.Notifications
             message.Subject = "Notification";
             message.IsBodyHtml = true;
             message.Body = "Dear " + user.UserName + "<br/>";
-            message.Body += book.Title + "is currently unavailable";
+            message.Body += "<b>"+book.Title  + "</b>"+ " is currently unavailable. <br/>";
+            message.Body += "<p>We have processed your refund, and you should expect to see the amount credited to your account in about 1 to 2 business days.</p><br>";
+            message.Body += "<p>If you have any other questions or concerns, just reply to this email, we will be here to help you in any way we can.</p><br>";
             smtp.Port = 587;
             smtp.Host = "smtp.gmail.com";
             smtp.EnableSsl = true;

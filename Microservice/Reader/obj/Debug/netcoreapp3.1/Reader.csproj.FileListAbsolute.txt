@@ -82,3 +82,4 @@ C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Reader\bin\Debug\netcor
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Reader\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Reader\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Reader\obj\Debug\netcoreapp3.1\Reader.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Reader\obj\Debug\netcoreapp3.1\Reader.csproj.CopyComplete

@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://localhost:17366/api/gateway/",
-  imageUrl: "http://localhost:51859/"
+  baseUrl: "http://52.146.23.212/api/gateway/",
+  imageUrl: "https://cogdotnet1709.blob.core.windows.net/images/"
 
 };
 

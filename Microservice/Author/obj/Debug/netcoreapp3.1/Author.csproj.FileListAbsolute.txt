@@ -83,3 +83,11 @@ C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcor
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\obj\Debug\netcoreapp3.1\Author.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Azure.Core.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Azure.Storage.Blobs.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\Azure.Storage.Common.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\System.IO.Hashing.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\System.Memory.Data.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\System.Text.Encodings.Web.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\bin\Debug\netcoreapp3.1\System.Text.Json.dll
+C:\Users\cogdotnet1709\Desktop\DigitalBooks\Microservice\Author\obj\Debug\netcoreapp3.1\Author.csproj.CopyComplete

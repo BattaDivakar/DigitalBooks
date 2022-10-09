@@ -55,7 +55,7 @@ export class SignupComponent implements OnInit {
 
   hasEmailExisted(email: any, role: any) :boolean{
     if(this.userModels){
-      if(this.userModels.find((x:any)=> x.email.toUpperCase() === email.toUpperCase() && x.roleId === Number(role)))
+      if(this.userModels.find((x:any)=> x.email.toUpperCase() === email.toUpperCase()))
       {
         return true;
       }

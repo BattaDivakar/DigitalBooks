@@ -17,6 +17,7 @@ baseImageUrl : string  = environment.imageUrl;
     this.readerservice.MyBooks(this.authservice.getCurrentUserid()).subscribe(res => {
       this.books = res;
    });
+    
   }
   
 }

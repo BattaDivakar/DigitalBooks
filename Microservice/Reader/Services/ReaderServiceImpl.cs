@@ -1,5 +1,6 @@
 ﻿using Common.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -99,7 +100,8 @@ namespace Reader.Services
                         FilePath = b.FilePath,
                         Price = b.Price,
                         AuthorName = u.UserName,
-                        Active = b.Active
+                        Active = b.Active,
+                        CancelFlag = DateTime.Now.Subtract(i.InvoiceDate).TotalDays > 1 ? false : true
                     }).ToList();
         }
 
@@ -109,7 +111,7 @@ namespace Reader.Services
                     join u in db.Users on b.AuthorId equals u.Id
                     join i in db.Invoices on id equals i.ReaderId
                     join s in db.InvoiceStatuses on i.Status equals s.Id
-                    where b.Active == true && i.ReaderId == id && i.BookId == b.Id
+                    where i.ReaderId == id && i.BookId == b.Id
                     orderby b.Id
                     select new InvoiceDTO
                     {
